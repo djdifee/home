@@ -1,22 +1,24 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: ['./src/index.js'],
 	output: {
-		filename: 'js/[name].js',
-		path: path.join(__dirname, 'dist')
+		filename: 'bundle.js',
+		path: path.resolve(__dirname, 'build'),
+		publicPath: '/build/',
 	},
 	devServer: {
 		inline: true,
-		contentBase: './dist',
+		contentBase: path.join(__dirname, 'build'),
 		port: 3000
 	},
 	module: {
 		rules : [
 			{
 				test: /\.js$/,
-				exclude: /(node_modules)/,
+				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader'
 				}
@@ -40,10 +42,8 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: "./src/index.html",
-			filename: "./index.html"
-		})
+		new webpack.optimize.UglifyJsPlugin(),
+		new HtmlWebpackPlugin({template: './src/index.html'})
 	],
 	devtool: 'cheap-module-eval-source-map',
 };
