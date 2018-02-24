@@ -1,18 +1,37 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 import '../../styles/main.scss';
-import Main from './Main';
+import Home from './screens/Home';
+import Contact from './screens/Contact'
+import PageNotFound from './screens/PageNotFound';
 import logo from '../../media/difee_logo_white.png';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Link to="/home">Home</Link>
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="app">
+      <header className="app-header">
+        <NavLink to="/about" activeClassName="selected">
+          <span>About</span>
+        </NavLink>
+        <NavLink to="/" exact activeClassName="selected">
+          <img src={logo} className="app-logo" alt="logo" />
+        </NavLink>
+        <NavLink to="/contact" activeClassName="selected">
+          <span>Contact</span>
+        </NavLink>
       </header>
-      <span>wat</span>
-      <Main />
+      <div className="app-content">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/contact" exact component={Contact} />
+          <Route component={PageNotFound} />
+        </Switch>
+      </div>
+      <footer className="app-footer">
+        <span>Footer</span>
+        <span>Footer</span>
+        <span>Footer</span>
+      </footer>
     </div>
   );
 };

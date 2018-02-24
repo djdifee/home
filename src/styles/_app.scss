@@ -1,28 +1,91 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+  url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+  url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
 
-.App-logo {
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.app-logo {
   /*animation: App-logo-spin infinite 20s linear;*/
   height: 80px;
 }
 
-.App-header {
+.app-header {
   align-items: center;
   background-color: #222;
   display: flex;
   height: 100px;
-  justify-content: center;
+  justify-content: space-around;
   padding: 20px;
-  color: white;
+
+  a {
+    text-decoration: none;
+
+    &.selected {
+      span {
+        outline: 2px solid #fff;
+      }
+    }
+
+    span {
+      color: #fff;
+      padding: 1em;
+      text-decoration: none;
+    }
+  }
 }
 
-.App-title {
-  font-size: 1.5em;
+.app-content {
+  height: 100%;
 }
 
-.App-intro {
-  font-size: large;
+.app-footer {
+  align-items: center;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  height: 2em;
+  justify-content: space-around;
 }
 
 @keyframes App-logo-spin {
