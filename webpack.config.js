@@ -9,6 +9,9 @@ module.exports = {
 		path: path.resolve(__dirname, 'build'),
 		publicPath: '/build/',
 	},
+	resolve: {
+		extensions: ['.jsx', '.js']
+	},
 	devServer: {
 		inline: true,
 		contentBase: path.join(__dirname, 'build'),
@@ -17,11 +20,11 @@ module.exports = {
 	module: {
 		rules : [
 			{
-				test: /\.js$/,
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: {
+				use: [{
 					loader: 'babel-loader'
-				}
+				}]
 			},
 			{
 				test: /\.scss/,
