@@ -15,7 +15,8 @@ module.exports = {
 	devServer: {
 		inline: true,
 		contentBase: path.join(__dirname, 'build'),
-		port: 3000
+		port: 3000,
+		publicPath: '/home/',
 	},
 	module: {
 		rules : [
