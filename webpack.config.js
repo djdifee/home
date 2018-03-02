@@ -14,7 +14,7 @@ module.exports = {
 	},
 	devServer: {
 		inline: true,
-		contentBase: path.join(__dirname, 'build'),
+		contentBase: path.resolve(__dirname, 'build'),
 		port: 3000,
 		publicPath: '/home/',
 	},
