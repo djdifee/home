@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, NavLink } from "react-router-dom";
 import '../../styles/main.scss';
+import About from './screens/About';
 import Home from './screens/Home';
 import Contact from './screens/Contact'
 import PageNotFound from './screens/PageNotFound';
@@ -23,6 +24,8 @@ const App = () => {
       <div className="app-content">
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={About} />
+          <Route path="/home" exact component={Home} />
           <Route path="/contact" exact component={Contact} />
           <Route component={PageNotFound} />
         </Switch>
