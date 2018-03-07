@@ -6,10 +6,23 @@ class Shows extends Component {
 		this.state = {};
 	}
 
+	componentDidMount() {
+		const script = document.createElement('script');
+		script.src = "https://widget.songkick.com/9300139/widget.js";
+		document.body.appendChild(script);
+	}
+
 	render() {
 		return (
-			<div><a href="https://www.songkick.com/artists/9300139" class="songkick-widget" data-theme="light" data-track-button="on" data-detect-style="true" data-background-color="transparent">Difee tour dates</a>
-			<script src="//widget.songkick.com/9300139/widget.js"></script></div>
+			<div>
+				<a
+					href="https://www.songkick.com/artists/9300139"
+					className="songkick-widget"
+					data-theme="light"
+					data-font-color="#000000"
+					data-background-color="transparent"
+			>	Difee show dates</a>
+			</div>
 		);
 	}
 }
