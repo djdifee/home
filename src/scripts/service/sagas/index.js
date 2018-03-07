@@ -1,6 +1,6 @@
 import {call, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import {
-	REQUEST_HELLO_WORLD,
+	REQUEST_HELLO_WORLD, RECEIVE_HELLO_WORLD,
 } from '../constants';
 import {
 	receiveHelloWorld
@@ -24,6 +24,6 @@ function* helloWorld(action) {
   dispatched while a fetch is already pending, that pending fetch is cancelled
   and only the latest one will be run.
 */
-export default function* mySaga() {
+export default function* rootSaga() {
 	yield takeLatest(REQUEST_HELLO_WORLD, helloWorld);
 }

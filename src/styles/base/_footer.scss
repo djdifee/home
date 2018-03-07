@@ -1,0 +1,9 @@
+.app-footer {
+  @include shadow-up(false);
+  align-items: center;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  height: 2em;
+  justify-content: space-around;
+}

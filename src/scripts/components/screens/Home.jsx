@@ -1,35 +1,51 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {
+	requestHelloWorld
+} from "../../service/actions/index";
+
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
+		this.requestHelloWorld = this.requestHelloWorld.bind(this);
 		this.state = {};
 	}
 
-	componentDidMount() {
-		const script = document.createElement('script');
 
-		script.src = "http://widget.songkick.com/9300139/widget.js"
-
-		document.body.appendChild(script);
-	}
 
 	render() {
 		return (
 			<div>
-				<a
-					href="https://www.songkick.com/artists/9300139"
-					className="songkick-widget"
-					data-theme="light"
-					data-font-color="#000000"
-					data-background-color="transparent"
-				>Difee show dates</a>
+				<button onClick={() => this.requestHelloWorld()}>Run saga</button>
+				<span>Message: {this.props.helloWorld.helloMessage}</span>
+				<span>Done loading: {this.props.helloWorld.doneLoading.toString()}</span>
 			</div>
 		);
 	}
+
+	requestHelloWorld() {
+		console.log('Function works, trying to trigger action via props:');
+		this.props.requestMessage();
+	}
 }
 
-Home.propTypes = {};
+// Using PropTypes like this is a way to ensure that you get your props in the expected format
+Home.propTypes = {
+	helloWorld: PropTypes.shape({
+		doneLoading: PropTypes.bool,
+		helloMessage: PropTypes.string,
+	}),
+	requestMessage: PropTypes.func,
+};
 
-export default Home;
+const mapStateToProps = state => ({
+	helloWorld: state.helloWorld
+});
+
+const mapDispatchToProps = dispatch => ({
+	requestMessage: payload => dispatch(requestHelloWorld(payload))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps, null)(Home);
