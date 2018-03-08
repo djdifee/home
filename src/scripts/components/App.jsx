@@ -1,14 +1,20 @@
 import React from 'react';
 import {Switch, Route, NavLink} from "react-router-dom";
 import '../../styles/main.scss';
-import About from './screens/About';
-import Music from './screens/Music'
-import Home from './screens/Home';
-import Contact from './screens/Contact'
-import PageNotFound from './screens/PageNotFound';
+import {
+  About,
+  Contact,
+  Home,
+  Music,
+  PageNotFound,
+  Shows
+} from './screens';
 import logo from '../../media/difee_logo_white.png';
-import Shows from "./screens/Shows";
 
+/* The Switch element makes it possible to only
+render the routes and its components and not the header and footer */
+
+// When you don't need any functions inside of the component you should render a stateless component
 const App = () => {
   return (
     <div className="app">

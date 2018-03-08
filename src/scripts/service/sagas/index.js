@@ -1,28 +1,25 @@
 import {call, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import {
-	REQUEST_HELLO_WORLD, RECEIVE_HELLO_WORLD,
+	REQUEST_HELLO_WORLD,
 } from '../constants';
 import {
 	receiveHelloWorld
 } from '../actions';
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+// Worker saga will be fired on REQUEST_HELLO_WORLD action
 function* helloWorld(action) {
 	console.log('Action in saga: ', action);
 	try {
 		// do api call
-		// const user = yield call(Api.fetchUser, action.payload.userId);
 		yield put(receiveHelloWorld('Hello world from redux saga!'));
 	} catch (e) {
-		yield put(receiveHelloWorld('Hello world from redux saga!'));
+		yield put(receiveHelloWorld('Oh no, it failed!'));
 	}
 }
 
 /*
-  Alternatively you may use takeLatest.
-  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
-  dispatched while a fetch is already pending, that pending fetch is cancelled
-  and only the latest one will be run.
+  Use saga helpers to decide how to react to an action
+  Read more about this here: https://redux-saga.js.org/docs/api/
 */
 export default function* rootSaga() {
 	yield takeLatest(REQUEST_HELLO_WORLD, helloWorld);

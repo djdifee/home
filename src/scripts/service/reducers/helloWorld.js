@@ -2,6 +2,7 @@ import {
 	RECEIVE_HELLO_WORLD, REQUEST_HELLO_WORLD
 } from '../constants';
 
+// Create an initial state to prevent undefined
 const initialState = {
 	doneLoading: false,
 	helloMessage: '',
