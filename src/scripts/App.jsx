@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route, NavLink} from "react-router-dom";
-import '../../styles/main.scss';
+import '../styles/main.scss';
 import {
   About,
   Contact,
@@ -9,12 +9,13 @@ import {
   PageNotFound,
   Shows
 } from './screens';
-import logo from '../../media/difee_logo_white.png';
+import {Footer} from "./components";
+import logo from '../media/difee_logo_white.png';
 
 /* The Switch element makes it possible to only
 render the routes and its components and not the header and footer */
 
-// When you don't need any functions inside of the component you should render a stateless component
+// When you don't need any functions inside of the component you should render a stateless component (basically just a function)
 const App = () => {
   return (
     <div className="app">
@@ -47,9 +48,7 @@ const App = () => {
         </Switch>
       </div>
       <footer className="app-footer">
-        <span>Footer</span>
-        <span>Footer</span>
-        <span>Footer</span>
+        <Footer/>
       </footer>
     </div>
   );

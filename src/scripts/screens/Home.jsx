@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {
 	requestHelloWorld,
 	requestSwansonQuote,
-} from "../../service/actions/index";
+} from "../service/actions/index";
 
 
 class Home extends Component {

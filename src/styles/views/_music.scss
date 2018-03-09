@@ -1,0 +1,40 @@
+.tab-buttons {
+  height: 2em;
+}
+
+.music-platform-alternative {
+  align-items: center;
+  color: $black;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-decoration: none !important;
+  transition: color .2s;
+  width: 8em;
+
+  .animated-background {
+    background: $black;
+    bottom: 0;
+    height: 0;
+    left: 0;
+    position: absolute;
+    transition: height .2s;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:hover, &.active-platform {
+    color: $white;
+    transition: color .2s;
+
+    .animated-background {
+      height: 100%;
+      transition: height .2s;
+    }
+  }
+}
+
+.music-container {
+  border: 1em solid $black;
+  padding: 1em 3em;
+}
