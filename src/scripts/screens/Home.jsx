@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import {
 	requestHelloWorld,
 	requestSwansonQuote,
-} from "../service/actions/index";
+} from '../service/actions/index';
 import profilePic from '../../media/img/swanson_profile.jpg';
 
 class Home extends Component {
@@ -70,7 +70,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	requestMessage: payload => dispatch(requestHelloWorld(payload)),
-	requestQuote: payload => dispatch(requestSwansonQuote(payload))
+	requestQuote: payload => dispatch(requestSwansonQuote(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, null)(Home);
