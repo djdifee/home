@@ -3,14 +3,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: ['babel-polyfill', './src/scripts/index.js'],
+	entry: ['babel-polyfill', './src/scripts/index.jsx'],
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'build'),
 		publicPath: '/home/',
 	},
 	resolve: {
-		extensions: ['.jsx', '.js']
+		extensions: ['.jsx', '.js'],
 	},
 	devServer: {
 		inline: true,
@@ -20,33 +20,33 @@ module.exports = {
 		publicPath: '/home/',
 	},
 	module: {
-		rules : [
+		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: ['babel-loader', 'eslint-loader']
+				exclude: [/node_modules/, './webpack.config.js'],
+				use: ['babel-loader', 'eslint-loader'],
 			},
 			{
 				test: /\.scss/,
-				loader: 'style-loader!css-loader!sass-loader'
+				loader: 'style-loader!css-loader!sass-loader',
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
 				use: [
-					'file-loader'
-				]
+					'file-loader',
+				],
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/,
 				use: [
-					'file-loader'
-				]
-			}
-		]
+					'file-loader',
+				],
+			},
+		],
 	},
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin(),
-		new HtmlWebpackPlugin({template: './src/index.html'})
+		new HtmlWebpackPlugin({ template: './src/index.html' }),
 	],
 	devtool: 'cheap-module-eval-source-map',
 };

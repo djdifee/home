@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Shows extends Component {
 	constructor(props) {
@@ -8,7 +8,7 @@ class Shows extends Component {
 
 	componentDidMount() {
 		const script = document.createElement('script');
-		script.src = "https://widget.songkick.com/9300139/widget.js";
+		script.src = 'https://widget.songkick.com/9300139/widget.js';
 		document.body.appendChild(script);
 	}
 
@@ -21,7 +21,8 @@ class Shows extends Component {
 					data-theme="light"
 					data-font-color="#000000"
 					data-background-color="transparent"
-			>	Difee show dates</a>
+				>	Difee show dates
+				</a>
 			</div>
 		);
 	}
