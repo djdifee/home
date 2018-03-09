@@ -1,29 +1,72 @@
-import {call, put, takeEvery, takeLatest} from 'redux-saga/effects';
+import {all, call, fork, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import {
-	REQUEST_HELLO_WORLD, RECEIVE_HELLO_WORLD,
+	RECEIVE_HELLO_WORLD,
+	RECEIVE_SWANSON_QUOTE,
+	REQUEST_HELLO_WORLD,
+	REQUEST_SWANSON_QUOTE
 } from '../constants';
 import {
-	receiveHelloWorld
+	receiveHelloWorld,
+	receiveSwansonQuote,
 } from '../actions';
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
-function* helloWorld(action) {
-	console.log('Action in saga: ', action);
+/** *********************************************************** */
+/** ********************** Callers *************************** */
+/** *********************************************************** */
+
+function callSwansonQuote() {
+	return fetch('http://ron-swanson-quotes.herokuapp.com/v2/quotes')
+		.then(res => res.json())
+		.then(data => (data))
+		.catch(ex => {
+			console.warn('Parsing failed: ', ex);
+			return ({ex});
+		});
+}
+
+/** *********************************************************** */
+/** ********************** FETCHERS *************************** */
+/** *********************************************************** */
+
+// Worker saga will be fired on REQUEST_HELLO_WORLD action
+function* fetchHelloWorld(action) {
 	try {
 		// do api call
-		// const user = yield call(Api.fetchUser, action.payload.userId);
-		yield put(receiveHelloWorld('Hello world from redux saga!'));
+		yield put({type: RECEIVE_HELLO_WORLD, text: 'Hello world from redux saga!'});
 	} catch (e) {
-		yield put(receiveHelloWorld('Hello world from redux saga!'));
+		yield put(receiveHelloWorld('Oh no, it failed!'));
 	}
 }
 
+function* fetchSwansonQuote(action) {
+	try {
+		const response = yield call(callSwansonQuote);
+		if (response) {
+			yield put({type: RECEIVE_SWANSON_QUOTE, response});
+		}
+	} catch(err) {
+		console.warn('Saga failed with response: ', err);
+	}
+}
+
+/** *********************************************************** */
+/** ********************** WATCHERS *************************** */
+/** *********************************************************** */
 /*
-  Alternatively you may use takeLatest.
-  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
-  dispatched while a fetch is already pending, that pending fetch is cancelled
-  and only the latest one will be run.
+  Use saga helpers to decide how to react to an action, like 'takeLatest' or 'takeAll'
+  Read more about this here: https://redux-saga.js.org/docs/api/
 */
+function* watchHelloWorld() {
+	yield takeLatest(REQUEST_HELLO_WORLD, fetchHelloWorld);
+}
+function* watchSwansonQuote() {
+	yield takeLatest(REQUEST_SWANSON_QUOTE, fetchSwansonQuote);
+}
+
+
 export default function* rootSaga() {
-	yield takeLatest(REQUEST_HELLO_WORLD, helloWorld);
+	yield all([
+		fork(watchHelloWorld),
+		fork(watchSwansonQuote),
+	])
 }
