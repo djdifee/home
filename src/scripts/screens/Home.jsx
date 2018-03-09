@@ -5,7 +5,7 @@ import {
 	requestHelloWorld,
 	requestSwansonQuote,
 } from "../service/actions/index";
-
+import profilePic from '../../media/img/swanson_profile.jpg';
 
 class Home extends Component {
 	constructor(props) {
@@ -17,22 +17,33 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="content-wrapper">
-				{/* Traditional functions has to be binded in the constructor */}
+				{/* Local functions has to be binded in the constructor */}
 				<button onClick={() => this.requestHelloWorld()}>Run saga</button>
 				<span>Message: {this.props.helloWorld.helloMessage}</span>
 				<span>Done loading: {this.props.helloWorld.doneLoading.toString()}</span>
 
-				{/* If function is being passed down, you can access the directly via props */}
-				<button onClick={() => this.props.requestQuote()}>Request a quote from Ron Swanson</button>
-				<span>Total quotes fetched: {this.props.swansonQuote.totalQuotes}</span>
-				<span>Loading: {this.props.swansonQuote.loading.toString()}</span>
-				<span>Message from Ron: <br/>{this.props.swansonQuote.latestQuote}</span>
+				<div className="space-between">
+					<div className="profile-container">
+						<img src={profilePic} alt="profile pic" />
+						<button onClick={() => this.props.requestQuote()}>Request a quote from Ron Swanson</button>
+					</div>
+					{/* If function is being passed down, you can access the directly via props */}
+					<div className="half-width">
+						<div className="space-around">
+							<span>Total quotes fetched: {this.props.swansonQuote.totalQuotes}</span>
+							<span>Loading: {this.props.swansonQuote.loading.toString()}</span>
+						</div>
+						<div className="message-from-ron flex-column">
+							<span>Message from Ron: </span>
+							<span>{this.props.swansonQuote.latestQuote}</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
 
 	requestHelloWorld() {
-		console.log('Function works, trying to trigger action via props:');
 		this.props.requestMessage();
 	}
 }

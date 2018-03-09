@@ -10,7 +10,7 @@ import {
   Shows
 } from './screens';
 import {Footer} from "./components";
-import logo from '../media/difee_logo_white.png';
+import logo from '../media/img/difee_logo_white.png';
 
 /* The Switch element makes it possible to only
 render the routes and its components and not the header and footer */
