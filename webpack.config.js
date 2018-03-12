@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
+const options = './.stylelintrc';
 
 module.exports = {
 	entry: ['babel-polyfill', './src/scripts/index.jsx'],
@@ -47,6 +50,7 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin(),
 		new HtmlWebpackPlugin({ template: './src/index.html' }),
+		new StyleLintPlugin(options),
 	],
 	devtool: 'cheap-module-eval-source-map',
 };
