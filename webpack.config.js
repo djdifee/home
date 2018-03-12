@@ -26,7 +26,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				exclude: [/node_modules/, './webpack.config.js'],
+				exclude: [/node_modules/, '/tests/'],
 				use: ['babel-loader', 'eslint-loader'],
 			},
 			{

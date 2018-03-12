@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
-import '../styles/_main.scss';
 import {
 	About,
 	Contact,
