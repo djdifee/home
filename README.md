@@ -6,6 +6,7 @@ Boilerplate to get started with React Fiber together with Redux-Saga.
 ```
     ... clone repository ...
     npm install
+    npm run build
     npm start 
 ```
 
