@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import store from './store';
 import App from './App';
 
-import '../styles/main.scss';
+import '../styles/_main.scss';
 
 // Renders a react element into the DOM
 ReactDOM.render(

@@ -7,6 +7,8 @@ class Shows extends Component {
 	}
 
 	componentDidMount() {
+		// componentDidMount() is one of the React lifecycle methods, and is caller just after the component has rendered.
+		// Docs about component lifecycle: https://reactjs.org/docs/react-component.html
 		const script = document.createElement('script');
 		script.src = 'https://widget.songkick.com/9300139/widget.js';
 		document.body.appendChild(script);
