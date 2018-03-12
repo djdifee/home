@@ -1,0 +1,23 @@
+.app-footer {
+  @include shadow-up(false);
+  align-items: center;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  height: 3em;
+  justify-content: flex-end;
+
+  .footer-content {
+    .social-medias {
+      display: flex;
+    }
+  }
+
+  .social-icon {
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    fill: $white;
+    margin-right: 1em;
+  }
+}

@@ -1,0 +1,7 @@
+// File structure is based on all directories having an index file doing the import for that directory
+
+// Import utils first, as the other files will be looking for variables inside here, and therefore cannot be imported before this
+@import 'utils/index';
+
+@import 'base/index';
+@import 'views/index';

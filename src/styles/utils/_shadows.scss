@@ -1,0 +1,15 @@
+@mixin shadow-down($long) {
+  @if $long {
+    box-shadow: 0 6px 10px 0 $shadow-color;
+  } @else {
+    box-shadow: 0 3px 10px 0 $shadow-color;
+  }
+}
+
+@mixin shadow-up($long) {
+  @if $long {
+    box-shadow: 0 -6px 10px 0 $shadow-color;
+  } @else {
+    box-shadow: 0 -3px 10px 0 $shadow-color;
+  }
+}
