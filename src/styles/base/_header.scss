@@ -1,15 +1,22 @@
 .header-logo {
-  height: 80px;
+  height: 60px;
 }
 
 .app-header {
   @include shadow-down(false);
   align-items: center;
-  background-color: $black;
   display: flex;
   height: 100px;
   justify-content: space-around;
   padding: 20px;
+
+  &.winter {
+    background: linear-gradient(to bottom right, $purple, $light-blue);
+  }
+
+  &.summer {
+    background: linear-gradient(to bottom right, $pink, $orange)
+  }
 
   .header-button {
     align-items: center;
@@ -34,7 +41,7 @@
       transition: background .2s;
 
       span {
-        color: $black;
+        color: $purple;
         transition: color .2s;
       }
     }
