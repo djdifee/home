@@ -16,6 +16,7 @@ import logo from '../media/img/company-logo-white.png';
 /* The Switch element makes it possible to only
 render the routes and its components and not the header and footer */
 
+// When you don't need any functions inside of the component you should render a stateless component (basically just a function)
 const App = props => (
 	<div className="app">
 		<header className={`app-header ${props.selectedTheme}`}>
