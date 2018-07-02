@@ -39,7 +39,7 @@ const Footer = props => (
 		<div className="social-medias">
 			{/* You can map within the html to easier render lists */}
 			{socialMedias.map(social => (
-				<a key={social.id} target="_blank" href={social.link} className="social-icon">
+				<a key={social.id} target="_blank" rel="noopener noreferrer" href={social.link} className="social-icon">
 					{social.logo}
 				</a>
 			))}

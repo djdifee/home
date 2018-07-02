@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink, withRouter } from 'react-router-dom';
 import {
 	About,
 	Contact,
@@ -60,4 +60,7 @@ const mapStateToProps = state => ({
 	selectedTheme: state.switchTheme.selectedTheme,
 });
 
-export default connect(mapStateToProps, null, null)(App);
+/* Because of the connect method from React Redux, the shouldComponentUpdate function causes the component not to update
+ * unless the props change. As of version 4 of the router, this conflicts on how it updates on navigating.
+ * Wrapping the component in the withRouter function will fix this. */
+export default withRouter(connect(mapStateToProps, null, null)(App));

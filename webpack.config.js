@@ -10,7 +10,7 @@ module.exports = {
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'build'),
-		publicPath: '/home/', // This is to make gh-pages work. Name it the same as your repo
+		publicPath: '/',
 	},
 	resolve: {
 		extensions: ['.jsx', '.js'],
@@ -20,7 +20,7 @@ module.exports = {
 		contentBase: path.resolve(__dirname, 'build'),
 		historyApiFallback: true,
 		port: 3000,
-		publicPath: '/home/', // This is to make gh-pages work. Name it the same as your repo
+		publicPath: '/',
 	},
 	module: {
 		rules: [
