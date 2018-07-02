@@ -12,10 +12,26 @@
 
   &.winter {
     background: linear-gradient(to bottom right, $purple, $light-blue);
+
+    .header-button {
+      &:hover {
+        span {
+          color: $purple;
+        }
+      }
+    }
   }
 
   &.summer {
-    background: linear-gradient(to bottom right, $pink, $orange)
+    background: linear-gradient(to bottom right, $pink, $orange);
+
+    .header-button {
+      &:hover {
+        span {
+          color: $orange;
+        }
+      }
+    }
   }
 
   .header-button {
@@ -39,11 +55,13 @@
     &:hover {
       background: $white;
       transition: background .2s;
+    }
+  }
 
-      span {
-        color: $purple;
-        transition: color .2s;
-      }
+  .header-logo {
+    &:hover {
+      animation: rotateY 1s ease-out 0s 1;
+      animation-iteration-count: 1;
     }
   }
 
