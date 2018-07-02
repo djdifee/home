@@ -1,13 +1,32 @@
 .app-footer {
   @include shadow-up(false);
-  align-items: center;
-  background-color: $black;
   color: $white;
   display: flex;
   height: 3em;
-  justify-content: flex-end;
+
+  &.winter {
+    background: linear-gradient(to top right, $purple, $light-blue);
+  }
+
+  &.summer {
+    background: linear-gradient(to top right, $pink, $orange)
+  }
 
   .footer-content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 1em;
+    width: 100%;
+
+    .themes {
+      .theme-button {
+        cursor: pointer;
+        margin-right: 1em;
+      }
+    }
+
     .social-medias {
       display: flex;
     }
@@ -18,6 +37,6 @@
     cursor: pointer;
     display: flex;
     fill: $white;
-    margin-right: 1em;
+    margin-left: 1em
   }
 }
