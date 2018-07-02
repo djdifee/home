@@ -29,9 +29,9 @@ const socialMedias = [
 	},
 ];
 
+// Session storage to hold the selected theme variable
 const storage = window.sessionStorage; // eslint-disable-line
 
-// When you don't need any functions inside of the component you should render a stateless component (basically just a function)
 class Footer extends Component {
 	constructor(props) {
 		super(props);
@@ -40,8 +40,6 @@ class Footer extends Component {
 	}
 
 	componentDidMount() {
-		console.log('props: ', this.props);
-		console.log(storage);
 		if (storage.selectedTheme && !this.props.selectedTheme) {
 			storage.getItem('selectedTheme');
 			this.props.switchTheme(storage.selectedTheme);
@@ -71,9 +69,8 @@ class Footer extends Component {
 	}
 
 	themeClicked(selected) {
-		console.log('selected: ', selected);
-		console.log('storage: ', storage);
-		console.log('props: ', this.props);
+		// In case a session storage is not available in the used browser,
+		// we still want to store the state
 		if (storage) {
 			storage.setItem('selectedTheme', selected);
 			this.props.switchTheme(selected);
@@ -82,7 +79,6 @@ class Footer extends Component {
 		}
 	}
 }
-
 
 Footer.propTypes = {
 	selectedTheme: PropTypes.string,
