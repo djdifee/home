@@ -3,5 +3,5 @@ export { default as About } from './About';
 export { default as Contact } from './Contact';
 export { default as Home } from './Home';
 export { default as PageNotFound } from './PageNotFound';
-export { default as Router } from './Router';
+export { default as Routes } from './Routes';
 export { default as Shows } from './Shows';
