@@ -7,7 +7,7 @@ import {
 	Contact,
 	Home,
 	PageNotFound,
-	Router,
+	Routes,
 	Shows,
 } from './screens';
 import { Footer } from './components';
@@ -23,8 +23,8 @@ const App = props => (
 			<NavLink to="/about" className="header-button" activeClassName="selected">
 				<span>About</span>
 			</NavLink>
-			<NavLink to="/router" className="header-button" activeClassName="selected">
-				<span>Router</span>
+			<NavLink to="/routes" className="header-button" activeClassName="selected">
+				<span>Routes</span>
 			</NavLink>
 			<NavLink to="/" exact activeClassName="selected">
 				<img src={logo} className="header-logo" alt="logo" />
@@ -40,7 +40,7 @@ const App = props => (
 			<Switch>
 				<Route path="/" exact component={Home} />
 				<Route path="/about" exact component={About} />
-				<Route path="/router" component={Router} />
+				<Route path="/routes" component={Routes} />
 				<Route path="/home" exact component={Home} />
 				<Route path="/shows" exact component={Shows} />
 				<Route path="/contact" exact component={Contact} />

@@ -18,7 +18,7 @@ const platforms = [
 ];
 
 // match is an inherited property from the router
-const Router = ({ match }) => (
+const Routes = ({ match }) => (
 	<div>
 		<h2>Select preferred platform</h2>
 		<p>A quick expample for URL Parameters.</p>
@@ -47,8 +47,8 @@ const Router = ({ match }) => (
 	</div>
 );
 
-Router.propTypes = {
+Routes.propTypes = {
 	match: PropTypes.object.isRequired,
 };
 
-export default Router;
+export default Routes;
