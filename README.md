@@ -1,3 +1,5 @@
+![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)
+
 ## EVRY React boilerplate
 
 Boilerplate to get started with React Fiber together with Redux-Saga.
