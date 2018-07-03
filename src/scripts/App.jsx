@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Switch, Route, NavLink, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import {
 	About,
 	Contact,
@@ -10,8 +10,7 @@ import {
 	Routes,
 	Shows,
 } from './screens';
-import { Footer } from './components';
-import logo from '../media/img/company-logo-white.png';
+import { Footer, Header } from './components';
 
 /* The Switch element makes it possible to only
 render the routes and its components and not the header and footer */
@@ -19,23 +18,7 @@ render the routes and its components and not the header and footer */
 // When you don't need any functions inside of the component you should render a stateless component (basically just a function)
 const App = props => (
 	<div className="app">
-		<header className={`app-header ${props.selectedTheme}`}>
-			<NavLink to="/about" className="header-button" activeClassName="selected">
-				<span>About</span>
-			</NavLink>
-			<NavLink to="/routes" className="header-button" activeClassName="selected">
-				<span>Routes</span>
-			</NavLink>
-			<NavLink to="/" exact activeClassName="selected">
-				<img src={logo} className="header-logo" alt="logo" />
-			</NavLink>
-			<NavLink to="/shows" className="header-button" activeClassName="selected">
-				<span>Shows</span>
-			</NavLink>
-			<NavLink to="/contact" className="header-button" activeClassName="selected">
-				<span>Contact</span>
-			</NavLink>
-		</header>
+		<Header theme={props.selectedTheme} />
 		<div className="app-content">
 			<Switch>
 				<Route path="/" exact component={Home} />

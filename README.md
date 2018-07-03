@@ -1,13 +1,13 @@
-## React boilerplater
+## EVRY React boilerplate
 
-Boilerplate to get started with React Fiber together with Redux-Saga. 
+Boilerplate to get started with React Fiber together with Redux-Saga.
 
 ### Deployment
 ```
     ... clone repository ...
     npm install
     npm run build
-    npm start 
+    npm start
 ```
 
 ### How to start working on a feature
@@ -19,6 +19,6 @@ Boilerplate to get started with React Fiber together with Redux-Saga.
     git commit -a -m "detailed commit message"
     git status
     ... verify that correct files are included ...
-    git push -u origin add-feature-x    
+    git push -u origin add-feature-x
     ... create pull-request to master ...
 ```
