@@ -44,6 +44,8 @@ class Footer extends Component {
 			if (storage.selectedTheme && !this.props.selectedTheme) {
 				storage.getItem('selectedTheme');
 				this.props.switchTheme(storage.selectedTheme);
+			} else {
+				this.props.switchTheme('winter');
 			}
 		} else {
 			console.warn('Local storage was not available');
