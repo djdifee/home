@@ -6,6 +6,7 @@
     "indent": ["error", "tab"],
     "max-len": ["warn", {"code": 150}],
     "no-console": 0,
+    "no-irregular-whitespace": 0,
     "no-tabs": 0,
     "no-unused-vars": 1,
 
@@ -21,7 +22,11 @@
         "render",
         "everything-else"
       ]}
-    ]
+    ],
+
+    // JSX specific rules
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   },
   "globals": {
     "document": false,
