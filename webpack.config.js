@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
@@ -47,8 +48,16 @@ module.exports = {
 			},
 		],
 	},
+	optimization: {
+		minimizer: [
+			new UglifyJsPlugin({
+				uglifyOptions: {
+					ecma: 6,
+				},
+			}),
+		],
+	},
 	plugins: [
-		new webpack.optimize.UglifyJsPlugin(),
 		new HtmlWebpackPlugin({ template: './src/index.html' }),
 		new StyleLintPlugin(options),
 	],
