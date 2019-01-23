@@ -6,7 +6,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const options = './.stylelintrc';
 
 module.exports = {
-	entry: ['babel-polyfill', './src/scripts/index.jsx'],
+	entry: ['@babel/polyfill', './src/scripts/index.jsx'],
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'build'),
