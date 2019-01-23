@@ -5,7 +5,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --mode=development --open",
     "build": "webpack",
     "test": "NODE_ENV=test jest --coverage",
     "test:watch": "NODE_ENV=test jest --watch",
@@ -36,7 +36,6 @@
     "node-sass": "^4.11.0",
     "path": "^0.12.7",
     "react-addons-test-utils": "^15.6.2",
-    "regenerator-runtime": "^0.12.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "stylelint": "^9.10.1",
@@ -53,9 +52,9 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-redux": "^5.1.1",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "redux": "^3.7.2",
-    "redux-saga": "^0.16.2"
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.0"
   }
 }
