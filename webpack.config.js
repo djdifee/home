@@ -4,6 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+const babelConf = path.resolve(__dirname, 'babel.config.js');
 const options = './.stylelintrc';
 
 module.exports = {
@@ -20,6 +21,7 @@ module.exports = {
 		inline: true,
 		contentBase: path.resolve(__dirname, 'build'),
 		historyApiFallback: true,
+		watchContentBase: true,
 		port: 3000,
 		publicPath: '/',
 	},
@@ -28,7 +30,12 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/, '/tests/'],
-				use: ['babel-loader', 'eslint-loader'],
+				use: {
+					loader: 'babel-loader',
+					options: {
+						configFile: babelConf,
+					},
+				},
 			},
 			{
 				test: /\.scss/,
