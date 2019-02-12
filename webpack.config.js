@@ -1,12 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+const babelConf = path.resolve(__dirname, 'babel.config.js');
 const options = './.stylelintrc';
 
 module.exports = {
-	entry: ['babel-polyfill', './src/scripts/index.jsx'],
+	entry: ['@babel/polyfill', './src/scripts/index.jsx'],
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'build'),
@@ -19,6 +21,7 @@ module.exports = {
 		inline: true,
 		contentBase: path.resolve(__dirname, 'build'),
 		historyApiFallback: true,
+		watchContentBase: true,
 		port: 3000,
 		publicPath: '/',
 	},
@@ -27,7 +30,12 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/, '/tests/'],
-				use: ['babel-loader', 'eslint-loader'],
+				use: {
+					loader: 'babel-loader',
+					options: {
+						configFile: babelConf,
+					},
+				},
 			},
 			{
 				test: /\.scss/,
@@ -47,8 +55,16 @@ module.exports = {
 			},
 		],
 	},
+	optimization: {
+		minimizer: [
+			new UglifyJsPlugin({
+				uglifyOptions: {
+					ecma: 6,
+				},
+			}),
+		],
+	},
 	plugins: [
-		new webpack.optimize.UglifyJsPlugin(),
 		new HtmlWebpackPlugin({ template: './src/index.html' }),
 		new StyleLintPlugin(options),
 	],
