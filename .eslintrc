@@ -1,7 +1,6 @@
 {
   "extends": "airbnb",
   "rules": {
-    // Regular eslint rules
     "func-names": ["error", "never"],
     "indent": ["error", "tab"],
     "max-len": ["warn", {"code": 150}],
@@ -10,10 +9,13 @@
     "no-tabs": 0,
     "no-unused-vars": 1,
 
-    // Rules specific for react
-    "react/forbid-prop-types": 0, // Turn this on if you require an even more strict control over prop types
+    "react/destructuring-assignment": [1, "always", {
+      "ignoreClassFields": true
+    }],
+    "react/forbid-prop-types": 0,
     "react/jsx-indent": [1, "tab"],
     "react/jsx-indent-props": [1, "tab"],
+    "react/jsx-one-expression-per-line": 0,
     "react/require-default-props": 0,
     "react/sort-comp": [1, {
       "order": [
@@ -24,7 +26,6 @@
       ]}
     ],
 
-    // JSX specific rules
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0
   },
