@@ -1,0 +1,42 @@
+$margin-size: 1em;
+
+.grid-two-columns {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  >div {
+    padding: 0 2em;
+    width: 100%;
+  }
+}
+
+.grid-three-columns {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.grid-four-columns {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+
+  >div {
+    padding: 0 2em;
+    width: 100%;
+  }
+}
+
+.margin-right {
+  margin-right: $margin-size;
+}
+
+.margin-bottom {
+  margin-bottom: $margin-size;
+}
+
+.margin-left {
+  margin-left: $margin-size;
+}
+
+.margin-top {
+  margin-top: $margin-size;
+}

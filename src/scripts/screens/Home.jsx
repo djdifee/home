@@ -15,11 +15,17 @@ class Home extends Component {
 		const { requestQuote, swansonQuote } = this.props;
 		return (
 			<div className="content-wrapper">
-				<div className="space-between">
+				<div className="grid-two-columns">
 					<div className="profile-container">
 						<img src={profilePic} alt="profile pic" />
+						<p>
+							This is Ron Swanson. He has some nice quotes.<br />
+							When you click the button, the action REQUEST_SWANSON_QUOTE will be dispatched, which will be picked up by the saga.
+							It will <i>also</i> be picked up by the reducer, which only task for this action is to toggle its loading variable.
+						</p>
 						{/* Button is a custom pure component. It expects 'text' and 'onClick' to be sent via props */}
-						<Button text="Fetch quote" onClick={() => requestQuote()} />
+						<Button className="margin-bottom" text="Fetch quote" onClick={() => requestQuote()} />
+						<p>When the server responds, the loading variable toggles back, and the reducer ads the response to the store</p>
 					</div>
 					<div className="half-width">
 						<div className="space-around">
