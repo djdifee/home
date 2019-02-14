@@ -19,7 +19,7 @@ const platforms = [
 
 // match is an inherited property from the router
 const Routes = ({ match }) => (
-	<div>
+	<div className="content-wrapper">
 		<h2>Select preferred platform</h2>
 		<p>A quick expample for URL Parameters.</p>
 		<div className="tab-buttons space-around">

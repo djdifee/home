@@ -27,7 +27,7 @@ class Home extends Component {
 						<Button className="margin-bottom" text="Fetch quote" onClick={() => requestQuote()} />
 						<p>When the server responds, the loading variable toggles back, and the reducer ads the response to the store</p>
 					</div>
-					<div className="half-width">
+					<div>
 						<div className="space-around">
 							<span>Total quotes fetched: {swansonQuote.totalQuotes}</span>
 							<span>Loading: {swansonQuote.loading.toString()}</span>
