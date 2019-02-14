@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import {
-	About,
-	Contact,
 	Home,
 	PageNotFound,
+	Resources,
 	Routes,
-	Shows,
 } from './screens';
 import { Footer, Header } from './components';
 
@@ -22,11 +20,9 @@ const App = props => (
 		<div className="app-content">
 			<Switch>
 				<Route path="/" exact component={Home} />
-				<Route path="/about" exact component={About} />
 				<Route path="/routes" component={Routes} />
 				<Route path="/home" exact component={Home} />
-				<Route path="/shows" exact component={Shows} />
-				<Route path="/contact" exact component={Contact} />
+				<Route path="/resources" exact component={Resources} />
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>

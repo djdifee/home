@@ -9,9 +9,13 @@
     "no-tabs": 0,
     "no-unused-vars": 1,
 
+    "react/destructuring-assignment": [1, "always", {
+      "ignoreClassFields": true
+    }],
     "react/forbid-prop-types": 0,
     "react/jsx-indent": [1, "tab"],
     "react/jsx-indent-props": [1, "tab"],
+    "react/jsx-one-expression-per-line": 0,
     "react/require-default-props": 0,
     "react/sort-comp": [1, {
       "order": [

@@ -1,76 +1,62 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-	requestHelloWorld,
-	requestSwansonQuote,
-} from '../service/actions/index';
+import { requestSwansonQuote } from '../service/actions/index';
+import { Button } from '../components';
 import profilePic from '../../media/img/swanson_profile.jpg';
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.requestHelloWorld = this.requestHelloWorld.bind(this);
 		this.state = {};
 	}
 
 	render() {
+		const { requestQuote, swansonQuote } = this.props;
 		return (
 			<div className="content-wrapper">
-				{/* Local functions has to be binded in the constructor */}
-				<button onClick={() => this.requestHelloWorld()}>Run saga</button>
-				<span>Message: {this.props.helloWorld.helloMessage}</span>
-				<span>Done loading: {this.props.helloWorld.doneLoading.toString()}</span>
-
 				<div className="space-between">
 					<div className="profile-container">
 						<img src={profilePic} alt="profile pic" />
-						<button onClick={() => this.props.requestQuote()}>Request a quote from Ron Swanson</button>
+						<Button text="Fetch quote" onClick={() => requestQuote()}>Request a quote from Ron Swanson</Button>
 					</div>
 					{/* If function is being passed down, you can access the directly via props */}
 					<div className="half-width">
 						<div className="space-around">
-							<span>Total quotes fetched: {this.props.swansonQuote.totalQuotes}</span>
-							<span>Loading: {this.props.swansonQuote.loading.toString()}</span>
+							<span>Total quotes fetched: {swansonQuote.totalQuotes}</span>
+							<span>Loading: {swansonQuote.loading.toString()}</span>
 						</div>
 						<div className="message-from-ron flex-column">
 							<span>Message from Ron: </span>
-							<span>{this.props.swansonQuote.latestQuote}</span>
+							<span>{swansonQuote.latestQuote}</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		);
 	}
-
-	requestHelloWorld() {
-		this.props.requestMessage();
-	}
 }
 
 // Using PropTypes like this is a way to ensure that you get your props in the expected format
 Home.propTypes = {
-	helloWorld: PropTypes.shape({
-		doneLoading: PropTypes.bool,
-		helloMessage: PropTypes.string,
-	}),
 	swansonQuote: PropTypes.shape({
 		latestQuote: PropTypes.string,
 		loading: PropTypes.bool,
 		totalQuotes: PropTypes.number,
 	}),
-	requestMessage: PropTypes.func,
 	requestQuote: PropTypes.func,
 };
 
+// Access your store my using the mapStateToProps wrapper
 const mapStateToProps = state => ({
-	helloWorld: state.helloWorld,
 	swansonQuote: state.swansonQuote,
 });
 
+// Access your actions by using the mapDispatchToProps wrapper
 const mapDispatchToProps = dispatch => ({
-	requestMessage: payload => dispatch(requestHelloWorld(payload)),
 	requestQuote: payload => dispatch(requestSwansonQuote(payload)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps, null)(Home);
+// Connects them with Redux connect
+// You can read more about this here: https://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

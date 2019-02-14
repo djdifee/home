@@ -1,0 +1,17 @@
+.main-button {
+  background: $dark-grey;
+  border: 2px solid $dark-grey;
+  color: $text-grey;
+  cursor: pointer;
+  outline: none !important;
+  padding: .5em 1em;
+
+  &:hover {
+    background: $black;
+    color: $white;
+  }
+
+  &:active {
+
+  }
+}
