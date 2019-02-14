@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 import logo from '../../media/img/company-logo-white.png';
 
-const Header = props => (
-	<header className={`app-header ${props.theme}`}>
+const Header = ({ theme }) => (
+	<header className={`app-header ${theme}`}>
 		<NavLink to="/routes" className="header-button" activeClassName="selected">
 			<span>Routes</span>
 		</NavLink>

@@ -18,9 +18,9 @@ class Home extends Component {
 				<div className="space-between">
 					<div className="profile-container">
 						<img src={profilePic} alt="profile pic" />
-						<Button text="Fetch quote" onClick={() => requestQuote()}>Request a quote from Ron Swanson</Button>
+						{/* Button is a custom pure component. It expects 'text' and 'onClick' to be sent via props */}
+						<Button text="Fetch quote" onClick={() => requestQuote()} />
 					</div>
-					{/* If function is being passed down, you can access the directly via props */}
 					<div className="half-width">
 						<div className="space-around">
 							<span>Total quotes fetched: {swansonQuote.totalQuotes}</span>

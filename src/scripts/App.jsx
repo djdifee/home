@@ -14,9 +14,9 @@ import { Footer, Header } from './components';
 render the routes and its components and not the header and footer */
 
 // When you don't need any functions inside of the component you should render a stateless component (basically just a function)
-const App = props => (
+const App = ({ selectedTheme }) => (
 	<div className="app">
-		<Header theme={props.selectedTheme} />
+		<Header theme={selectedTheme} />
 		<div className="app-content">
 			<Switch>
 				<Route path="/" exact component={Home} />
@@ -26,7 +26,7 @@ const App = props => (
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>
-		<footer className={`app-footer ${props.selectedTheme}`}>
+		<footer className={`app-footer ${selectedTheme}`}>
 			<Footer />
 		</footer>
 	</div>
