@@ -15,6 +15,7 @@ const middleware = [
 ];
 
 const thirdParty = [
+	{ name: 'Redux DevTools plugin', link: 'https://github.com/zalmoxisus/redux-devtools-extension' },
 	{ name: 'Typechecking with PropTypes (by React)', link: 'https://reactjs.org/docs/typechecking-with-proptypes.html' },
 	{ name: 'Webpack official "getting started"', link: 'https://webpack.js.org/guides/getting-started/' },
 ];

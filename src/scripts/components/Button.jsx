@@ -11,7 +11,7 @@ const Button = ({ className, onClick, text }) => (
 
 Button.defaultProps = {
 	text: '',
-}
+};
 
 Button.propTypes = {
 	className: PropTypes.string,

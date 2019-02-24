@@ -1,5 +1,6 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "rules": {
     "func-names": ["error", "never"],
     "indent": ["error", "tab"],
@@ -8,7 +9,6 @@
     "no-irregular-whitespace": 0,
     "no-tabs": 0,
     "no-unused-vars": 1,
-
     "react/destructuring-assignment": [1, "always", {
       "ignoreClassFields": true
     }],

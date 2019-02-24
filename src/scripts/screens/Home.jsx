@@ -19,9 +19,17 @@ class Home extends Component {
 					<div className="profile-container">
 						<img src={profilePic} alt="profile pic" />
 						<p>
-							This is Ron Swanson. He has some nice quotes.<br />
-							When you click the button, the action REQUEST_SWANSON_QUOTE will be dispatched, which will be picked up by the saga.
-							It will <i>also</i> be picked up by the reducer, which only task for this action is to toggle its loading variable.
+								This is Ron Swanson. He has some funny quotes.<br />
+							When you click the button, the action REQUEST_SWANSON_QUOTE will be dispatched, which will be picked up
+							by the saga. It will <i>also</i> be picked up by the reducer, which only task for this action is to
+							toggle its loading variable. <br />
+							You should download the<span>&nbsp;</span>
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://github.com/zalmoxisus/redux-devtools-extension"
+							>Redux DevTools
+							</a> plugin to trace the process off dispatching actions.
 						</p>
 						{/* Button is a custom pure component. It expects 'text' and 'onClick' to be sent via props */}
 						<Button className="margin-bottom" text="Fetch quote" onClick={() => requestQuote()} />
@@ -63,6 +71,6 @@ const mapDispatchToProps = dispatch => ({
 	requestQuote: payload => dispatch(requestSwansonQuote(payload)),
 });
 
-// Connects them with Redux connect
+// Connect your component with the states and dispatchers
 // You can read more about this here: https://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
