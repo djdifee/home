@@ -2,6 +2,10 @@
   "name": "toolbox-reference-react",
   "author": "Kristoffer Lund",
   "version": "0.2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kristofferlund/home.git"
+  },
   "scripts": {
     "predeploy": "npm run build",
     "start": "webpack-dev-server --mode=development --open",
