@@ -30,10 +30,14 @@ do is to download the extension.
 
 
 ### Eslint
-The project uses the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript). These rules
+The project follows the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript). These rules
 should be followed as thoroughly as possible, but if you have a strong opinion about some of the rules
 you are welcome to raise the question about disabling certain rules.
 To run the linter from the terminal, run ``npm run lint:js`` 
+
+### Stylelint
+The project follows the [standard Stylelint config](https://github.com/stylelint/stylelint-config-standard) with
+a few minor tweaks. Look in the [.stylelintrc](.stylelintrc) to make yourself known with these tweaks. 
 
 ### Testing
 Testing is done with the [Jest](https://jestjs.io/) testing framework. The tests can be run with the command

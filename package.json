@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --mode=development --open",
     "build": "webpack",
     "lint:js": "eslint --ext .jsx src",
+    "lint:css": "stylelint \"src/**/*.scss\" --config .stylelintrc",
     "test": "NODE_ENV=test jest --coverage",
     "test:watch": "NODE_ENV=test jest --watch",
     "clean-test": "NODE_ENV=test jest --no-cache"

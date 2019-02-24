@@ -1,4 +1,4 @@
-{
+  {
   "rules": {
     "block-no-empty": null,
     "color-hex-case": "lower",
