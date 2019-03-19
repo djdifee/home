@@ -17,7 +17,7 @@ render the routes and its components and not the header and footer */
 const App = ({ selectedTheme }) => (
 	<div className="app">
 		<Header theme={selectedTheme} />
-		<div className="app-content">
+		<main className="app-content">
 			<Switch>
 				<Route path="/" exact component={Home} />
 				<Route path="/routes" component={Routes} />
@@ -25,7 +25,7 @@ const App = ({ selectedTheme }) => (
 				<Route path="/resources" exact component={Resources} />
 				<Route component={PageNotFound} />
 			</Switch>
-		</div>
+		</main>
 		<footer className={`app-footer ${selectedTheme}`}>
 			<Footer />
 		</footer>

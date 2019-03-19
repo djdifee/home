@@ -9,7 +9,7 @@
   }
 
   &.summer {
-    background: linear-gradient(to top right, $pink, $orange)
+    background: linear-gradient(to top right, $pink, $orange);
   }
 
   .footer-content {
@@ -22,7 +22,8 @@
 
     .themes {
       .theme-button {
-        cursor: pointer;
+        color: $white;
+        text-decoration: none;
         margin-right: 1em;
       }
     }

@@ -57,13 +57,13 @@ class Footer extends Component {
 		return (
 			<div className="footer-content">
 				<div className="themes">
-					<span className="theme-button" id="theme-winter" onClick={() => this.themeClicked('winter')}>Winter</span>
-					<span className="theme-button" id="theme-summer" onClick={() => this.themeClicked('summer')}>Summer</span>
+					<a  href="javascript:void(0)" className="theme-button" id="theme-winter" onClick={() => this.themeClicked('winter')}>Winter</a>
+					<a  href="javascript:void(0)" className="theme-button" id="theme-summer" onClick={() => this.themeClicked('summer')}>Summer</a>
 				</div>
 				<div className="social-medias">
 					{/* You can map within the html to easier render lists */}
 					{socialMedias.map(social => (
-						<a key={social.id} target="_blank" rel="noopener noreferrer" href={social.link} className="social-icon">
+						<a key={social.id} aria-label={social.name} target="_blank" rel="noopener noreferrer" href={social.link} className="social-icon">
 							{social.logo}
 						</a>
 					))}
