@@ -1,10 +1,10 @@
 {
-  "name": "toolbox-reference-react",
+  "name": "react-redux-saga-boilerplate",
   "author": "Kristoffer Lund",
   "version": "0.3.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:evry-bergen/toolbox-reference-react.git"
+    "url": "git@github.com:kristofferlund/react-redux-saga-boilerplate.git"
   },
   "scripts": {
     "predeploy": "npm run build",
